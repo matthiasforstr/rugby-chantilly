@@ -1,0 +1,83 @@
+media:
+  - name: images
+    label: Images
+    input: public/images
+    output: /images
+    extensions: [jpg, jpeg, png, webp, avif, svg]
+  - name: logos
+    label: Logos
+    input: public/images/logos
+    output: /images/logos
+    extensions: [svg, png, webp]
+
+content:
+  - name: news
+    label: Actualités / News
+    type: collection
+    path: src/content/news
+    filename: '{primary}.md'
+    view:
+      fields: [title, date, locale]
+      sort: [date]
+      default:
+        sort: date
+        order: desc
+    fields:
+      - { name: title, label: Title, type: string, required: true }
+      - { name: date, label: Date, type: date, required: true }
+      - name: locale
+        label: Language
+        type: select
+        required: true
+        options:
+          values: [fr, en]
+          default: fr
+      - { name: excerpt, label: Excerpt, type: text, required: true }
+      - { name: image, label: Cover Image, type: image }
+      - { name: author, label: Author, type: string }
+      - { name: body, label: Body, type: rich-text }
+
+  - name: sponsors
+    label: Sponsors
+    type: file
+    path: src/content/sponsors/sponsors.json
+    fields:
+      - name: list
+        label: Sponsors
+        type: object
+        list: true
+        fields:
+          - { name: id, label: ID (slug), type: string, required: true }
+          - { name: name, label: Sponsor name, type: string, required: true }
+          - { name: logo, label: Logo, type: image, required: true }
+          - { name: url, label: Website URL, type: string, required: true }
+          - name: tier
+            label: Tier
+            type: select
+            required: true
+            options:
+              values: [gold, silver, bronze]
+              default: silver
+
+  - name: tiktok
+    label: TikTok Posts
+    type: file
+    path: src/content/tiktok/posts.json
+    fields:
+      - name: list
+        label: TikTok Post URLs
+        type: object
+        list: true
+        fields:
+          - { name: id, label: ID (slug), type: string, required: true }
+          - { name: url, label: TikTok Post URL, type: string, required: true, description: "z.B. https://www.tiktok.com/@rugby.olympique.c/video/123..." }
+          - { name: caption, label: Caption (optional), type: string }
+
+  - name: site-config
+    label: Site Configuration
+    type: file
+    path: src/content/config/site.json
+    fields:
+      - { name: ical_url, label: Google Calendar iCal URL, type: string, description: "Public iCal URL for match schedule" }
+      - { name: tiktok_account, label: TikTok Account URL, type: string }
+      - { name: contact_email, label: Contact Email, type: string }

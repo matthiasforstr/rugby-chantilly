@@ -1,0 +1,36 @@
+{
+  "site": {
+    "title": "Rugby Chantilly",
+    "tagline": "Official Rugby Club of Chantilly"
+  },
+  "nav": {
+    "home": "Home",
+    "news": "News",
+    "schedule": "Schedule",
+    "sponsors": "Sponsors",
+    "about": "About",
+    "contact": "Contact"
+  },
+  "hero": {
+    "headline": "Rugby Chantilly",
+    "sub": "Tradition. Performance. Community."
+  },
+  "schedule": {
+    "title": "Match Schedule",
+    "next": "Upcoming matches",
+    "unavailable": "Schedule temporarily unavailable."
+  },
+  "news": {
+    "title": "News",
+    "readMore": "Read more"
+  },
+  "sponsors": {
+    "title": "Our sponsors"
+  },
+  "tiktok": {
+    "title": "Follow us on TikTok"
+  },
+  "footer": {
+    "rights": "All rights reserved."
+  }
+}
