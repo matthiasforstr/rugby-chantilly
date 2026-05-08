@@ -58,20 +58,30 @@
   "matches": {
     "kicker": "Saison en cours",
     "title": "Matchs à venir",
-    "body": "Retrouvez tous nos matchs, à domicile et à l'extérieur. Le calendrier complet sera bientôt disponible.",
+    "body": "Retrouvez tous nos matchs, à domicile et à l'extérieur, toutes catégories confondues — de l'École de Rugby aux Cadets U16.",
     "cta": "Voir le calendrier",
     "soon": "Calendrier en cours de mise à jour",
-    "placeholder": "Le calendrier complet sera publié dès l'ouverture de la saison."
+    "placeholder": "Le calendrier complet sera publié dès l'ouverture de la saison.",
+    "home": "Domicile",
+    "away": "Extérieur"
   },
   "school": {
     "kicker": "École de Rugby",
+    "label": "Labellisée FFR",
     "title": "Former la relève",
-    "body": "De 5 à 18 ans, l'École de Rugby du R.O.C.C. forme les futurs talents du club dans le respect des valeurs du rugby : courage, solidarité, plaisir.",
+    "body": "De 4 à 14 ans, l'École de Rugby du R.O.C.C. forme les futurs talents du club dans le respect des valeurs du rugby : courage, solidarité, plaisir.",
     "ages": {
-      "u8": "Baby Rugby (5-8 ans)",
-      "u12": "Initiation (9-12 ans)",
-      "u14": "Perfectionnement (13-14 ans)",
-      "u18": "Compétition (15-18 ans)"
+      "baby": { "label": "Baby Rugby", "range": "U6 — 4 à 6 ans", "icon": "child_care" },
+      "u8":   { "label": "U8",          "range": "7 à 8 ans",     "icon": "sports_kabaddi" },
+      "u10":  { "label": "U10",         "range": "9 à 10 ans",    "icon": "fitness_center" },
+      "u12":  { "label": "U12",         "range": "11 à 12 ans",   "icon": "directions_run" },
+      "u14":  { "label": "U14",         "range": "13 à 14 ans",   "icon": "sports_score" }
+    },
+    "u16": {
+      "kicker": "Cadets",
+      "title": "U16 — la suite logique",
+      "body": "Au-delà de l'École de Rugby, l'équipe U16 (15 à 16 ans) prolonge la formation en compétition. Une étape clé pour les jeunes joueurs qui veulent passer au niveau supérieur.",
+      "label": "Hors École de Rugby"
     },
     "cta": "Inscrire mon enfant"
   },

@@ -58,20 +58,30 @@
   "matches": {
     "kicker": "Current season",
     "title": "Upcoming matches",
-    "body": "All our matches, home and away. The full calendar will be available soon.",
+    "body": "All our matches, home and away, across every category — from the Rugby School to U16 Cadets.",
     "cta": "View schedule",
     "soon": "Schedule update in progress",
-    "placeholder": "The full schedule will be published as soon as the season opens."
+    "placeholder": "The full schedule will be published as soon as the season opens.",
+    "home": "Home",
+    "away": "Away"
   },
   "school": {
     "kicker": "Rugby School",
+    "label": "FFR-certified",
     "title": "Training the next generation",
-    "body": "From 5 to 18, the R.O.C.C. Rugby School trains the club's future talent in the spirit of rugby's core values: courage, solidarity, fun.",
+    "body": "From age 4 to 14, the R.O.C.C. Rugby School trains the club's future talent in the spirit of rugby's core values: courage, solidarity, fun.",
     "ages": {
-      "u8": "Baby Rugby (ages 5-8)",
-      "u12": "Beginners (ages 9-12)",
-      "u14": "Intermediate (ages 13-14)",
-      "u18": "Competition (ages 15-18)"
+      "baby": { "label": "Baby Rugby", "range": "U6 — ages 4-6",  "icon": "child_care" },
+      "u8":   { "label": "U8",          "range": "ages 7-8",       "icon": "sports_kabaddi" },
+      "u10":  { "label": "U10",         "range": "ages 9-10",      "icon": "fitness_center" },
+      "u12":  { "label": "U12",         "range": "ages 11-12",     "icon": "directions_run" },
+      "u14":  { "label": "U14",         "range": "ages 13-14",     "icon": "sports_score" }
+    },
+    "u16": {
+      "kicker": "Cadets",
+      "title": "U16 — the next step",
+      "body": "Beyond the Rugby School, the U16 team (ages 15-16) continues training at competition level. A key stage for young players moving up.",
+      "label": "Outside Rugby School"
     },
     "cta": "Sign up my child"
   },

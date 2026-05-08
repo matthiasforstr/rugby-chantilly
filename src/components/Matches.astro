@@ -5,12 +5,39 @@ const { locale } = Astro.props;
 const i = t(locale);
 
 // Placeholder match list — will be replaced by iCal feed (Google Calendar)
-// once PUBLIC_ICAL_URL is configured.
-const placeholderMatches = [
-  { date: '—', label: locale === 'fr' ? 'Match à venir' : 'Upcoming match', home: 'R.O.C.C.', away: '—', venue: '—', isHome: true },
-  { date: '—', label: locale === 'fr' ? 'Match à venir' : 'Upcoming match', home: '—', away: 'R.O.C.C.', venue: '—', isHome: false },
-  { date: '—', label: locale === 'fr' ? 'Match à venir' : 'Upcoming match', home: 'R.O.C.C.', away: '—', venue: '—', isHome: true },
+// once PUBLIC_ICAL_URL is configured. Each event should ideally encode the
+// age category in the title (e.g. "U12 vs Senlis") so we can extract a tag.
+type MatchTag = 'baby' | 'u8' | 'u10' | 'u12' | 'u14' | 'u16';
+
+interface PlaceholderMatch {
+  date: string;
+  category: MatchTag;
+  home: string;
+  away: string;
+  venue: string;
+  isHome: boolean;
+}
+
+const placeholderMatches: PlaceholderMatch[] = [
+  { date: '—', category: 'u14', home: 'R.O.C.C.', away: '—',         venue: 'Stade des Bourgognes', isHome: true },
+  { date: '—', category: 'u16', home: '—',         away: 'R.O.C.C.', venue: '—',                    isHome: false },
+  { date: '—', category: 'u12', home: 'R.O.C.C.', away: '—',         venue: 'Stade des Bourgognes', isHome: true },
+  { date: '—', category: 'u10', home: '—',         away: 'R.O.C.C.', venue: '—',                    isHome: false },
 ];
+
+const categoryLabels: Record<MatchTag, string> = {
+  baby: 'Baby',
+  u8: 'U8',
+  u10: 'U10',
+  u12: 'U12',
+  u14: 'U14',
+  u16: 'U16',
+};
+
+// Visually distinguish: Rugby School (baby–u14) vs U16 (Cadets, outside école)
+function isEcole(c: MatchTag): boolean {
+  return c !== 'u16';
+}
 ---
 
 <section id="matches" class="py-24 bg-primary text-on-primary relative overflow-hidden">
@@ -31,32 +58,53 @@ const placeholderMatches = [
       </div>
 
       <div class="lg:w-2/3 w-full">
-        <div class="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10">
+        <div class="bg-white/5 backdrop-blur-sm rounded-2xl p-6 md:p-8 border border-white/10">
           <div class="flex items-center justify-between mb-6">
             <span class="text-on-primary/60 text-sm uppercase tracking-wider font-bold">{i.matches.soon}</span>
             <span class="material-symbols-outlined text-secondary">update</span>
           </div>
-          <div class="space-y-4">
+
+          <ul class="space-y-1">
             {placeholderMatches.map((m) => (
-              <div class="flex items-center gap-6 py-4 border-t border-white/10 first:border-t-0">
-                <div class="text-center w-16 flex-none">
-                  <div class="font-headline text-3xl font-bold text-secondary">{m.date}</div>
+              <li class="flex items-center gap-4 md:gap-6 py-4 border-t border-white/10 first:border-t-0">
+                <div class="text-center w-12 md:w-16 flex-none">
+                  <div class="font-headline text-2xl md:text-3xl font-bold text-secondary">{m.date}</div>
                 </div>
+
                 <div class="flex-1 min-w-0">
-                  <div class="flex items-center gap-3 mb-1">
-                    <span class={`text-xs font-bold uppercase tracking-wider px-2 py-0.5 rounded ${m.isHome ? 'bg-secondary text-on-secondary' : 'bg-white/10 text-on-primary/80'}`}>
-                      {m.isHome ? (locale === 'fr' ? 'Domicile' : 'Home') : (locale === 'fr' ? 'Extérieur' : 'Away')}
+                  <div class="flex flex-wrap items-center gap-2 mb-1.5">
+                    <span class={`text-[0.65rem] font-bold uppercase tracking-wider px-2 py-0.5 rounded ${isEcole(m.category) ? 'bg-secondary text-on-secondary' : 'bg-tertiary-fixed text-on-tertiary-fixed'}`}>
+                      {categoryLabels[m.category]}
                     </span>
-                    <span class="text-on-primary/50 text-xs">{m.venue}</span>
+                    <span class="text-[0.65rem] font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-white/10 text-on-primary/80">
+                      {m.isHome ? i.matches.home : i.matches.away}
+                    </span>
+                    <span class="text-on-primary/50 text-xs hidden sm:inline">· {m.venue}</span>
                   </div>
-                  <div class="font-headline font-bold text-lg text-on-primary truncate">
+                  <div class="font-headline font-bold text-base md:text-lg text-on-primary truncate">
                     {m.home} <span class="text-on-primary/40 mx-2">vs</span> {m.away}
                   </div>
                 </div>
+
                 <span class="material-symbols-outlined text-on-primary/30 hidden sm:inline">chevron_right</span>
-              </div>
+              </li>
             ))}
+          </ul>
+
+          <div class="flex flex-wrap items-center gap-3 mt-6 pt-4 border-t border-white/10">
+            <span class="text-on-primary/40 text-xs uppercase tracking-wider font-bold">
+              {locale === 'fr' ? 'Légende :' : 'Legend:'}
+            </span>
+            <span class="inline-flex items-center gap-1.5 text-xs text-on-primary/70">
+              <span class="w-2 h-2 rounded-sm bg-secondary"></span>
+              {locale === 'fr' ? 'École de Rugby' : 'Rugby School'}
+            </span>
+            <span class="inline-flex items-center gap-1.5 text-xs text-on-primary/70">
+              <span class="w-2 h-2 rounded-sm bg-tertiary-fixed"></span>
+              {locale === 'fr' ? 'Cadets U16' : 'U16 Cadets'}
+            </span>
           </div>
+
           <p class="text-on-primary/50 text-sm mt-6 italic">{i.matches.placeholder}</p>
         </div>
       </div>
