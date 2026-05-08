@@ -1,0 +1,29 @@
+---
+import { t, type Locale } from '../i18n';
+interface Props { locale: Locale; }
+const { locale } = Astro.props;
+const i = t(locale);
+---
+
+<section id="join" class="py-24">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="rugby-gradient rounded-3xl p-12 md:p-20 relative overflow-hidden flex flex-col items-center text-center">
+      <div class="relative z-10 max-w-3xl">
+        <h2 class="font-headline text-5xl md:text-7xl font-bold text-on-primary mb-8 leading-tight">
+          {i.cta.headlineStart} <span class="text-secondary">{i.cta.headlineEnd}</span>
+        </h2>
+        <p class="text-on-primary/70 text-lg mb-12">{i.cta.body}</p>
+        <div class="flex flex-col sm:flex-row justify-center gap-6">
+          <a href="#contact" class="bg-secondary text-on-secondary px-10 py-5 rounded-md font-bold text-xl hover:scale-105 transition-transform shadow-xl inline-block">
+            {i.cta.primary}
+          </a>
+          <a href="#contact" class="bg-white/10 backdrop-blur-md text-white border border-white/20 px-10 py-5 rounded-md font-bold text-xl hover:bg-white/20 transition-all inline-block">
+            {i.cta.secondary}
+          </a>
+        </div>
+      </div>
+      <div class="absolute top-[-10%] left-[-10%] w-64 h-64 bg-secondary/10 rounded-full blur-3xl"></div>
+      <div class="absolute bottom-[-10%] right-[-10%] w-96 h-96 bg-white/5 rounded-full blur-3xl"></div>
+    </div>
+  </div>
+</section>

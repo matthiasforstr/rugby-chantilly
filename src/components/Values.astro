@@ -1,0 +1,26 @@
+---
+import { t, type Locale } from '../i18n';
+interface Props { locale: Locale; }
+const { locale } = Astro.props;
+const i = t(locale);
+
+const values = [
+  { icon: 'history', title: i.values.tradition.title, body: i.values.tradition.body },
+  { icon: 'military_tech', title: i.values.excellence.title, body: i.values.excellence.body },
+  { icon: 'groups', title: i.values.community.title, body: i.values.community.body },
+];
+---
+
+<section class="py-24 bg-surface-container-low">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-16">
+      {values.map((v) => (
+        <div class="flex flex-col gap-4">
+          <span class="material-symbols-outlined text-4xl text-secondary" style="font-variation-settings: 'FILL' 1;">{v.icon}</span>
+          <h3 class="font-headline text-2xl font-bold text-primary">{v.title}</h3>
+          <p class="text-on-surface-variant leading-relaxed">{v.body}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

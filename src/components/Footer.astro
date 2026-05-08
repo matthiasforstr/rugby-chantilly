@@ -1,0 +1,56 @@
+---
+import { t, type Locale } from '../i18n';
+interface Props { locale: Locale; }
+const { locale } = Astro.props;
+const i = t(locale);
+
+const navLinks = [
+  { label: i.footer.links.club, href: `/${locale}/` },
+  { label: i.footer.links.privacy, href: '#privacy' },
+  { label: i.footer.links.school, href: '#school' },
+  { label: i.footer.links.terms, href: '#terms' },
+  { label: i.footer.links.matches, href: '#matches' },
+  { label: i.footer.links.partners, href: '#partners' },
+];
+---
+
+<footer id="contact" class="bg-primary py-12 px-8 border-t border-white/10">
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-7xl mx-auto">
+    <div>
+      <div class="flex items-center gap-3 mb-6">
+        <img src="/favicon-64.png" alt="" class="w-10 h-10 rounded-md" width="40" height="40" />
+        <div class="text-lg font-bold text-white font-headline">Chantilly Rugby</div>
+      </div>
+      <p class="text-on-primary/60 text-sm leading-relaxed max-w-xs">
+        {i.footer.tagline}
+      </p>
+    </div>
+
+    <div class="flex flex-col gap-4">
+      <h4 class="text-secondary font-bold mb-2 uppercase tracking-wider text-xs">{i.footer.navTitle}</h4>
+      <div class="grid grid-cols-2 gap-4">
+        {navLinks.map((l) => (
+          <a class="text-on-primary/60 hover:text-white transition-colors text-sm hover:underline decoration-secondary underline-offset-4" href={l.href}>{l.label}</a>
+        ))}
+      </div>
+    </div>
+
+    <div>
+      <h4 class="text-secondary font-bold mb-6 uppercase tracking-wider text-xs">{i.footer.followTitle}</h4>
+      <div class="flex gap-4 mb-8">
+        <a class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-secondary transition-colors" href="https://www.tiktok.com/@rugby.olympique.c" target="_blank" rel="noopener" aria-label="TikTok">
+          <span class="material-symbols-outlined text-white">video_library</span>
+        </a>
+        <a class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-secondary transition-colors" href="#" aria-label="Website">
+          <span class="material-symbols-outlined text-white">public</span>
+        </a>
+        <a class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-secondary transition-colors" href="#" aria-label="Email">
+          <span class="material-symbols-outlined text-white">alternate_email</span>
+        </a>
+      </div>
+      <div class="text-on-primary/60 text-sm">
+        {i.footer.rights}
+      </div>
+    </div>
+  </div>
+</footer>

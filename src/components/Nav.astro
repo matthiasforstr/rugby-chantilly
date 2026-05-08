@@ -1,0 +1,34 @@
+---
+import { t, type Locale, getOtherLocale } from '../i18n';
+interface Props { locale: Locale; }
+const { locale } = Astro.props;
+const i = t(locale);
+const other = getOtherLocale(locale);
+---
+
+<nav class="fixed top-0 w-full z-50 glass-nav border-b border-primary/10 shadow-sm">
+  <div class="flex justify-between items-center px-6 py-4 max-w-7xl mx-auto">
+    <a href={`/${locale}/`} class="flex items-center gap-3 group">
+      <img src="/favicon-64.png" alt="R.O.C.C." class="w-9 h-9 rounded-md" width="36" height="36" />
+      <span class="text-xl font-bold text-primary tracking-tighter font-headline hidden sm:inline">
+        Chantilly Rugby
+      </span>
+    </a>
+
+    <div class="hidden md:flex space-x-8 items-center">
+      <a class="font-headline font-bold tracking-tight text-primary border-b-2 border-secondary pb-1" href={`/${locale}/`}>{i.nav.club}</a>
+      <a class="font-headline font-bold tracking-tight text-primary/70 hover:text-primary transition-colors" href="#school">{i.nav.school}</a>
+      <a class="font-headline font-bold tracking-tight text-primary/70 hover:text-primary transition-colors" href="#matches">{i.nav.matches}</a>
+      <a class="font-headline font-bold tracking-tight text-primary/70 hover:text-primary transition-colors" href="#contact">{i.nav.contact}</a>
+    </div>
+
+    <div class="flex items-center gap-3">
+      <a href={`/${other}/`} class="label text-label-sm font-bold text-primary/60 hover:text-primary transition-colors hidden sm:inline" aria-label={`Switch to ${other.toUpperCase()}`}>
+        {other.toUpperCase()}
+      </a>
+      <a href="#join" class="bg-primary text-on-primary px-6 py-2 rounded-md font-bold hover:scale-95 active:scale-90 transition-all hover:shadow-[0_2px_0_0_var(--color-secondary)]">
+        {i.nav.join}
+      </a>
+    </div>
+  </div>
+</nav>

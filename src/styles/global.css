@@ -1,31 +1,50 @@
 @import "tailwindcss";
 
 @theme {
-  --color-primary: #002c13;
+  /* === Primary brand: forest green (matches code.html visual) === */
+  --color-primary: #014421;
   --color-primary-container: #014421;
-  --color-primary-fixed-variant: #14512d;
-  --color-on-primary: #fafaf5;
+  --color-primary-deep: #002c13;
+  --color-primary-fixed-dim: #4d7c66;
+  --color-on-primary: #ffffff;
 
+  /* === Secondary: pitch red === */
   --color-secondary: #b6171e;
-  --color-on-secondary: #fafaf5;
+  --color-secondary-fixed-dim: #d2363d;
+  --color-on-secondary: #ffffff;
 
+  /* === Surface tiers === */
+  --color-surface: #f9f9f8;
+  --color-surface-bright: #f9f9f8;
+  --color-surface-dim: #d9dad9;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-low: #f3f4f3;
+  --color-surface-container: #edeeed;
+  --color-surface-container-high: #e7e8e7;
+  --color-surface-container-highest: #e1e3e2;
+  --color-surface-variant: #e1e3e2;
+
+  /* === Text === */
+  --color-on-surface: #191c1c;
+  --color-on-surface-variant: #404943;
+  --color-on-background: #191c1c;
+
+  /* === Accents === */
+  --color-tertiary: #2b2b29;
   --color-tertiary-fixed: #ffdea5;
   --color-on-tertiary-fixed: #261900;
+  --color-outline: #707973;
+  --color-outline-variant: #bfc9c1;
+  --color-error: #ba1a1a;
 
-  --color-surface: #fafaf5;
-  --color-surface-container-lowest: #ffffff;
-  --color-surface-container-low: #f4f4ef;
-  --color-surface-container: #eeeee9;
-  --color-surface-container-high: #e8e8e3;
-  --color-surface-container-highest: #e2e2dd;
-  --color-surface-variant: #e0e3dc;
-
-  --color-on-surface: #1a1c19;
-  --color-outline-variant: #c0c9be;
-
-  --font-sans: "Space Grotesk", system-ui, sans-serif;
+  /* === Typography === */
+  --font-headline: "Space Grotesk", system-ui, sans-serif;
+  --font-body: "Plus Jakarta Sans", system-ui, sans-serif;
+  --font-label: "Plus Jakarta Sans", system-ui, sans-serif;
+  --font-display: Impact, "Haettenschweiler", "Arial Narrow Bold", sans-serif;
 
   --tracking-display: -0.02em;
+  --tracking-tight: -0.01em;
   --tracking-label: 0.05em;
 
   --text-display-lg: 3.5rem;
@@ -37,31 +56,74 @@
   --text-label-md: 0.875rem;
   --text-label-sm: 0.75rem;
 
+  /* === Spacing === */
   --spacing-4: 1.4rem;
   --spacing-16: 5.5rem;
   --spacing-20: 7rem;
 
+  /* === Radius === */
+  --radius-default: 0.125rem;
   --radius-md: 0.375rem;
-  --radius-lg: 0.5rem;
+  --radius-lg: 0.25rem;
+  --radius-xl: 0.5rem;
+  --radius-2xl: 1rem;
+  --radius-3xl: 1.5rem;
+  --radius-full: 0.75rem;
 }
 
 @layer base {
   html {
-    font-family: var(--font-sans);
+    font-family: var(--font-body);
     background-color: var(--color-surface);
     color: var(--color-on-surface);
   }
 
   body {
     line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
+}
+
+@layer utilities {
+  .font-headline { font-family: var(--font-headline); }
+  .font-body { font-family: var(--font-body); }
+  .font-label { font-family: var(--font-label); }
 
   .label {
     text-transform: uppercase;
     letter-spacing: var(--tracking-label);
   }
 
-  .display {
-    letter-spacing: var(--tracking-display);
+  .glass-nav {
+    backdrop-filter: blur(12px);
+    background-color: rgba(249, 249, 248, 0.8);
+  }
+
+  .rugby-gradient {
+    background: linear-gradient(135deg, #014421 0%, #003220 100%);
+  }
+
+  .red-underline {
+    position: relative;
+  }
+  .red-underline::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 50%;
+    height: 2px;
+    background-color: var(--color-secondary);
+  }
+
+  .no-scrollbar::-webkit-scrollbar { display: none; }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .material-symbols-outlined {
+    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
   }
 }

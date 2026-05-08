@@ -1,0 +1,46 @@
+---
+import { t, type Locale } from '../i18n';
+interface Props { locale: Locale; }
+const { locale } = Astro.props;
+const i = t(locale);
+
+const cards = [
+  { img: '/images/tiktok/tiktok-1.svg', label: locale === 'fr' ? "L'esprit d'équipe" : 'Team spirit', caption: locale === 'fr' ? "Le cri de guerre avant le choc de dimanche ! #RugbyChantilly #Union" : "War cry before Sunday's clash! #RugbyChantilly #Union" },
+  { img: '/images/tiktok/tiktok-2.svg', label: locale === 'fr' ? 'Entraînement' : 'Training', caption: locale === 'fr' ? "Précision chirurgicale face aux poteaux. #Kicker #RugbySkills" : "Surgical precision at the posts. #Kicker #RugbySkills" },
+  { img: '/images/tiktok/tiktok-3.svg', label: locale === 'fr' ? 'Fans' : 'Fans', caption: locale === 'fr' ? "Merci à notre 16ème homme pour ce soutien incroyable ! #AllezChantilly" : "Thanks to our 16th man for the incredible support! #AllezChantilly" },
+  { img: '/images/tiktok/tiktok-4.svg', label: locale === 'fr' ? 'École de Rugby' : 'Rugby School', caption: locale === 'fr' ? "La relève est prête ! Superbe plateau U12 ce weekend." : "The next generation is ready! Great U12 day this weekend." },
+];
+---
+
+<section class="py-24 bg-surface-container-high overflow-hidden">
+  <div class="max-w-7xl mx-auto px-6 mb-12">
+    <div class="flex items-center gap-4">
+      <h2 class="font-headline text-4xl font-bold text-primary">{i.tiktok.title}</h2>
+      <div class="h-px flex-1 bg-outline-variant/30"></div>
+      <div class="flex gap-2">
+        <button type="button" class="p-3 rounded-full bg-white border border-outline-variant/20 hover:bg-secondary hover:text-white transition-colors" aria-label="Previous">
+          <span class="material-symbols-outlined">chevron_left</span>
+        </button>
+        <button type="button" class="p-3 rounded-full bg-white border border-outline-variant/20 hover:bg-secondary hover:text-white transition-colors" aria-label="Next">
+          <span class="material-symbols-outlined">chevron_right</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="flex gap-6 px-6 overflow-x-auto pb-8 no-scrollbar scroll-smooth snap-x">
+    {cards.map((c) => (
+      <div class="snap-start flex-none w-80 h-[500px] bg-primary rounded-xl overflow-hidden relative group">
+        <img src={c.img} alt="" class="w-full h-full object-cover opacity-80 group-hover:scale-110 transition-transform duration-500" data-todo="Replace with TikTok thumbnail or oEmbed render" />
+        <div class="absolute inset-0 bg-gradient-to-t from-primary via-transparent to-transparent"></div>
+        <div class="absolute bottom-0 p-6">
+          <div class="flex items-center gap-2 mb-2">
+            <span class="material-symbols-outlined text-white" style="font-variation-settings: 'FILL' 1;">play_circle</span>
+            <span class="text-white font-label text-xs font-bold uppercase tracking-wider">{c.label}</span>
+          </div>
+          <p class="text-white font-medium text-sm">{c.caption}</p>
+        </div>
+      </div>
+    ))}
+  </div>
+</section>

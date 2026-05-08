@@ -1,36 +1,79 @@
 {
   "site": {
-    "title": "Rugby Chantilly",
-    "tagline": "Club de rugby officiel de Chantilly"
+    "title": "Chantilly Rugby",
+    "tagline": "Rugby Olympique Club de Chantilly — Tradition, Excellence, Communauté"
   },
   "nav": {
-    "home": "Accueil",
-    "news": "Actualités",
-    "schedule": "Calendrier",
-    "sponsors": "Sponsors",
-    "about": "À propos",
-    "contact": "Contact"
+    "club": "Club",
+    "school": "École",
+    "matches": "Matchs",
+    "contact": "Contact",
+    "join": "Nous Rejoindre"
   },
   "hero": {
-    "headline": "Rugby Chantilly",
-    "sub": "Tradition. Performance. Communauté."
+    "kicker": "L'élite du",
+    "headline": "RUGBY.",
+    "sub": "Plus qu'un club, une tradition d'excellence ancrée au cœur de Chantilly. Rejoignez la ferveur du ballon ovale.",
+    "ctaPrimary": "Devenir Membre",
+    "ctaSecondary": "Calendrier"
   },
-  "schedule": {
-    "title": "Calendrier des matchs",
-    "next": "Prochains matchs",
-    "unavailable": "Calendrier momentanément indisponible."
+  "values": {
+    "tradition": {
+      "title": "Tradition",
+      "body": "Héritiers d'une histoire prestigieuse, nous cultivons les valeurs fondamentales qui font la noblesse du rugby depuis des générations."
+    },
+    "excellence": {
+      "title": "Excellence",
+      "body": "L'exigence du haut niveau, tant sur le terrain qu'en dehors. Nous formons les champions de demain avec rigueur et passion."
+    },
+    "community": {
+      "title": "Communauté",
+      "body": "Une famille soudée où chaque membre, supporter ou partenaire, contribue à l'esprit unique du Chantilly Rugby."
+    }
   },
-  "news": {
-    "title": "Actualités",
-    "readMore": "Lire la suite"
-  },
-  "sponsors": {
-    "title": "Nos sponsors"
+  "partners": {
+    "title": "Devenez Partenaire",
+    "kicker": "Soutenez l'ambition d'un club historique",
+    "body": "Associez l'image de votre entreprise aux valeurs de courage, de solidarité et d'excellence du Chantilly Rugby. En devenant partenaire, vous bénéficiez d'une visibilité premium lors de nos rencontres, d'un accès privilégié à notre réseau d'entreprises locales et vous contribuez directement à la formation de nos jeunes talents.",
+    "benefits": {
+      "visibility": "Visibilité Terrain",
+      "network": "Réseau Business",
+      "formation": "Soutien Formation",
+      "vip": "Hospitalités VIP"
+    },
+    "form": {
+      "badge": "Nous Contacter",
+      "company": "Nom de l'entreprise",
+      "companyPlaceholder": "Ex: Ets. Martin",
+      "email": "Email de contact",
+      "emailPlaceholder": "contact@votre-entreprise.fr",
+      "message": "Votre projet de partenariat",
+      "messagePlaceholder": "Dites-nous comment vous souhaitez nous accompagner...",
+      "submit": "Envoyer la demande"
+    }
   },
   "tiktok": {
-    "title": "Suivez-nous sur TikTok"
+    "title": "Vibrez sur les réseaux"
+  },
+  "cta": {
+    "headlineStart": "VOTRE PLACE EST",
+    "headlineEnd": "SUR LE TERRAIN.",
+    "body": "Joueur, bénévole ou partenaire, rejoignez l'aventure du Chantilly Rugby Union. Ensemble, portons haut les couleurs de notre ville.",
+    "primary": "Nous Rejoindre",
+    "secondary": "Nous Contacter"
   },
   "footer": {
-    "rights": "Tous droits réservés."
+    "tagline": "Le club de référence dans l'Oise. Formation, compétition et convivialité au cœur du pays de Chantilly.",
+    "navTitle": "Navigation",
+    "followTitle": "Suivez-nous",
+    "links": {
+      "club": "Club",
+      "school": "École",
+      "matches": "Matchs",
+      "privacy": "Confidentialité",
+      "terms": "Mentions légales",
+      "partners": "Partenaires"
+    },
+    "rights": "© 2026 Rugby Olympique Club de Chantilly. Excellence & Tradition."
   }
 }
