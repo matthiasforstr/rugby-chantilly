@@ -1,0 +1,54 @@
+---
+import type { Locale } from '../i18n';
+interface Props { locale: Locale; }
+const { locale } = Astro.props;
+
+// ROCC WhatsApp number — international format without leading 0
+// Source: rugbychantilly.com (07 50 95 98 28 → +33 7 50 95 98 28 → 33750959828)
+const whatsappNumber = '33750959828';
+
+const presetMessage = locale === 'fr'
+  ? "Bonjour, j'ai une question concernant le Rugby Olympique Club de Chantilly."
+  : 'Hello, I have a question about the Rugby Olympique Club of Chantilly.';
+
+const href = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(presetMessage)}`;
+
+const ariaLabel = locale === 'fr'
+  ? 'Nous contacter sur WhatsApp'
+  : 'Contact us on WhatsApp';
+
+const tooltip = locale === 'fr' ? 'Une question ? Écrivez-nous' : 'Have a question? Message us';
+---
+
+<a
+  href={href}
+  target="_blank"
+  rel="noopener"
+  aria-label={ariaLabel}
+  class="whatsapp-fab group fixed z-40 bottom-5 right-5 md:bottom-6 md:right-6 inline-flex items-center gap-3 bg-[#25D366] hover:bg-[#1da851] text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 active:scale-95"
+>
+  <span class="flex items-center justify-center w-14 h-14 md:w-15 md:h-15 flex-none">
+    <svg viewBox="0 0 32 32" class="w-7 h-7" fill="currentColor" aria-hidden="true">
+      <path d="M16.001 3C9.373 3 4 8.373 4 15c0 2.118.555 4.124 1.523 5.86L4 28l7.302-1.487A11.94 11.94 0 0 0 16.001 27C22.628 27 28 21.628 28 15S22.628 3 16.001 3Zm0 21.6c-1.747 0-3.444-.466-4.92-1.347l-.353-.21-4.337.883.92-4.226-.23-.366A9.553 9.553 0 0 1 6.4 15c0-5.293 4.308-9.6 9.6-9.6 5.293 0 9.6 4.307 9.6 9.6s-4.307 9.6-9.6 9.6Zm5.27-7.193c-.288-.144-1.706-.842-1.971-.938-.265-.097-.458-.144-.65.144-.193.288-.747.938-.916 1.131-.169.193-.337.217-.625.072-.288-.144-1.218-.45-2.32-1.43-.857-.764-1.435-1.708-1.604-1.996-.169-.288-.018-.444.127-.588.13-.13.288-.337.433-.506.144-.169.193-.288.288-.481.097-.193.048-.361-.024-.506-.072-.144-.65-1.566-.89-2.144-.234-.563-.473-.487-.65-.495l-.554-.01c-.193 0-.506.072-.771.361-.265.288-1.013.99-1.013 2.413s1.037 2.798 1.182 2.99c.144.193 2.04 3.115 4.945 4.367.692.298 1.232.476 1.652.61.694.221 1.326.19 1.825.115.557-.083 1.706-.697 1.948-1.371.241-.674.241-1.252.169-1.371-.072-.12-.265-.193-.553-.337Z"/>
+    </svg>
+  </span>
+  <span class="pr-5 hidden md:inline-block max-w-0 group-hover:max-w-xs overflow-hidden whitespace-nowrap transition-all duration-300 ease-out font-bold text-sm">
+    {tooltip}
+  </span>
+</a>
+
+<style>
+  /* On mobile, label only appears on focus (a11y) */
+  @media (max-width: 767px) {
+    .whatsapp-fab span:last-child { display: none; }
+    .whatsapp-fab:focus-visible span:last-child {
+      display: inline-block;
+      max-width: 14rem;
+      padding-right: 1.25rem;
+    }
+  }
+  .whatsapp-fab {
+    /* nudge above iOS safe area */
+    bottom: calc(1.25rem + env(safe-area-inset-bottom, 0px));
+  }
+</style>

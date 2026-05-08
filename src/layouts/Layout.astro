@@ -1,6 +1,7 @@
 ---
 import '../styles/global.css';
 import { t, type Locale } from '../i18n';
+import WhatsAppButton from '../components/WhatsAppButton.astro';
 
 interface Props {
   title?: string;
@@ -40,5 +41,6 @@ const pageTitle = title ? `${title} — ${i.site.title}` : i.site.title;
   </head>
   <body class="bg-surface font-body text-on-surface antialiased">
     <slot />
+    <WhatsAppButton locale={locale} />
   </body>
 </html>

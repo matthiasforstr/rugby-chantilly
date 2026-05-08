@@ -55,6 +55,20 @@
   "tiktok": {
     "title": "Vibrez sur les réseaux"
   },
+  "touche": {
+    "kicker": "Adultes",
+    "tag": "Sans contact",
+    "title": "Rugby 5 — le rugby pour tous",
+    "lead": "Vous avez dépassé l'âge des cadets et vous voulez (re)découvrir le rugby ? Le Rugby 5, aussi appelé Rugby Touché, c'est l'esprit du jeu sans le placage.",
+    "body": "Mixte, sans contact, accessible quel que soit votre niveau ou votre condition physique. On joue à 5 contre 5, on touche au lieu de plaquer. Idéal pour bouger, transpirer et faire partie d'une vraie équipe — sans rentrer cabossé chez soi.",
+    "benefits": {
+      "mixed": "Équipes mixtes",
+      "noContact": "Aucun placage",
+      "allLevels": "Tous niveaux",
+      "fitness": "1h de cardio par séance"
+    },
+    "cta": "Rejoindre l'équipe adulte"
+  },
   "matches": {
     "kicker": "Saison en cours",
     "title": "Matchs à venir",

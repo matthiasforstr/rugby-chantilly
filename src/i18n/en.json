@@ -55,6 +55,20 @@
   "tiktok": {
     "title": "Live on social"
   },
+  "touche": {
+    "kicker": "Adults",
+    "tag": "No-contact",
+    "title": "Touch Rugby — rugby for everyone",
+    "lead": "Past the cadet age and want to (re)discover rugby? Touch Rugby (Rugby 5) is the spirit of the game without the tackles.",
+    "body": "Mixed, no-contact, open to any level and any fitness. 5-a-side, you touch instead of tackle. Perfect to move, sweat and be part of a real team — without going home banged up.",
+    "benefits": {
+      "mixed": "Mixed teams",
+      "noContact": "No tackling",
+      "allLevels": "All levels welcome",
+      "fitness": "1h of cardio per session"
+    },
+    "cta": "Join the adult team"
+  },
   "matches": {
     "kicker": "Current season",
     "title": "Upcoming matches",
