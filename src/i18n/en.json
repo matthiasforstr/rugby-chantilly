@@ -55,6 +55,26 @@
   "tiktok": {
     "title": "Live on social"
   },
+  "matches": {
+    "kicker": "Current season",
+    "title": "Upcoming matches",
+    "body": "All our matches, home and away. The full calendar will be available soon.",
+    "cta": "View schedule",
+    "soon": "Schedule update in progress",
+    "placeholder": "The full schedule will be published as soon as the season opens."
+  },
+  "school": {
+    "kicker": "Rugby School",
+    "title": "Training the next generation",
+    "body": "From 5 to 18, the R.O.C.C. Rugby School trains the club's future talent in the spirit of rugby's core values: courage, solidarity, fun.",
+    "ages": {
+      "u8": "Baby Rugby (ages 5-8)",
+      "u12": "Beginners (ages 9-12)",
+      "u14": "Intermediate (ages 13-14)",
+      "u18": "Competition (ages 15-18)"
+    },
+    "cta": "Sign up my child"
+  },
   "cta": {
     "headlineStart": "YOUR PLACE IS",
     "headlineEnd": "ON THE PITCH.",
@@ -70,9 +90,13 @@
       "club": "Club",
       "school": "School",
       "matches": "Matches",
-      "privacy": "Privacy",
-      "terms": "Terms of Service",
+      "privacy": "Privacy Policy",
+      "terms": "Legal Notice",
       "partners": "Partners"
+    },
+    "legalPaths": {
+      "privacy": "/en/privacy-policy/",
+      "terms": "/en/legal-notice/"
     },
     "rights": "© 2026 Rugby Olympique Club de Chantilly. Excellence & Tradition."
   }

@@ -1,0 +1,89 @@
+---
+import Layout from './Layout.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import type { Locale } from '../i18n';
+
+interface Props {
+  locale: Locale;
+  title: string;
+  lastUpdated?: string;
+}
+const { locale, title, lastUpdated } = Astro.props;
+---
+
+<Layout locale={locale} title={title}>
+  <Nav locale={locale} />
+  <main class="pt-32 pb-24 bg-surface">
+    <article class="max-w-3xl mx-auto px-6">
+      <header class="mb-16">
+        <h1 class="font-headline text-4xl md:text-5xl font-bold text-primary mb-4 tracking-tight">{title}</h1>
+        {lastUpdated && (
+          <p class="text-on-surface-variant text-sm uppercase tracking-wider font-bold">
+            {locale === 'fr' ? 'Dernière mise à jour : ' : 'Last updated: '}{lastUpdated}
+          </p>
+        )}
+      </header>
+      <div class="prose-rugby">
+        <slot />
+      </div>
+    </article>
+  </main>
+  <Footer locale={locale} />
+</Layout>
+
+<style is:global>
+  .prose-rugby h2 {
+    font-family: var(--font-headline);
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--color-primary);
+    margin-top: 3rem;
+    margin-bottom: 1rem;
+    letter-spacing: -0.01em;
+  }
+  .prose-rugby h2:first-child { margin-top: 0; }
+  .prose-rugby h3 {
+    font-family: var(--font-headline);
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--color-primary);
+    margin-top: 2rem;
+    margin-bottom: 0.75rem;
+  }
+  .prose-rugby p {
+    color: var(--color-on-surface);
+    line-height: 1.7;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+  }
+  .prose-rugby a {
+    color: var(--color-secondary);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    font-weight: 600;
+  }
+  .prose-rugby ul {
+    list-style: disc;
+    padding-left: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  .prose-rugby ul li { margin-bottom: 0.4rem; line-height: 1.7; }
+  .prose-rugby strong { font-weight: 700; color: var(--color-primary); }
+  .prose-rugby .placeholder {
+    background: rgba(182, 23, 30, 0.08);
+    color: var(--color-secondary);
+    padding: 0.1rem 0.4rem;
+    border-radius: 0.25rem;
+    font-weight: 600;
+    font-family: var(--font-headline);
+    font-size: 0.95em;
+  }
+  .prose-rugby blockquote {
+    border-left: 3px solid var(--color-secondary);
+    padding-left: 1.25rem;
+    margin: 1.5rem 0;
+    color: var(--color-on-surface-variant);
+    font-style: italic;
+  }
+</style>

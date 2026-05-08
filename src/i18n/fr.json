@@ -55,6 +55,26 @@
   "tiktok": {
     "title": "Vibrez sur les réseaux"
   },
+  "matches": {
+    "kicker": "Saison en cours",
+    "title": "Matchs à venir",
+    "body": "Retrouvez tous nos matchs, à domicile et à l'extérieur. Le calendrier complet sera bientôt disponible.",
+    "cta": "Voir le calendrier",
+    "soon": "Calendrier en cours de mise à jour",
+    "placeholder": "Le calendrier complet sera publié dès l'ouverture de la saison."
+  },
+  "school": {
+    "kicker": "École de Rugby",
+    "title": "Former la relève",
+    "body": "De 5 à 18 ans, l'École de Rugby du R.O.C.C. forme les futurs talents du club dans le respect des valeurs du rugby : courage, solidarité, plaisir.",
+    "ages": {
+      "u8": "Baby Rugby (5-8 ans)",
+      "u12": "Initiation (9-12 ans)",
+      "u14": "Perfectionnement (13-14 ans)",
+      "u18": "Compétition (15-18 ans)"
+    },
+    "cta": "Inscrire mon enfant"
+  },
   "cta": {
     "headlineStart": "VOTRE PLACE EST",
     "headlineEnd": "SUR LE TERRAIN.",
@@ -70,9 +90,13 @@
       "club": "Club",
       "school": "École",
       "matches": "Matchs",
-      "privacy": "Confidentialité",
+      "privacy": "Politique de confidentialité",
       "terms": "Mentions légales",
       "partners": "Partenaires"
+    },
+    "legalPaths": {
+      "privacy": "/fr/confidentialite/",
+      "terms": "/fr/mentions-legales/"
     },
     "rights": "© 2026 Rugby Olympique Club de Chantilly. Excellence & Tradition."
   }

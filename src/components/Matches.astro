@@ -1,0 +1,65 @@
+---
+import { t, type Locale } from '../i18n';
+interface Props { locale: Locale; }
+const { locale } = Astro.props;
+const i = t(locale);
+
+// Placeholder match list — will be replaced by iCal feed (Google Calendar)
+// once PUBLIC_ICAL_URL is configured.
+const placeholderMatches = [
+  { date: '—', label: locale === 'fr' ? 'Match à venir' : 'Upcoming match', home: 'R.O.C.C.', away: '—', venue: '—', isHome: true },
+  { date: '—', label: locale === 'fr' ? 'Match à venir' : 'Upcoming match', home: '—', away: 'R.O.C.C.', venue: '—', isHome: false },
+  { date: '—', label: locale === 'fr' ? 'Match à venir' : 'Upcoming match', home: 'R.O.C.C.', away: '—', venue: '—', isHome: true },
+];
+---
+
+<section id="matches" class="py-24 bg-primary text-on-primary relative overflow-hidden">
+  <div class="absolute top-1/2 right-0 -translate-y-1/2 opacity-[0.04] translate-x-1/4 pointer-events-none hidden lg:block">
+    <span class="material-symbols-outlined text-[600px]">sports_rugby</span>
+  </div>
+
+  <div class="max-w-7xl mx-auto px-6 relative z-10">
+    <div class="flex flex-col lg:flex-row gap-16 items-start">
+      <div class="lg:w-1/3">
+        <p class="text-secondary font-bold tracking-widest text-sm uppercase mb-4">{i.matches.kicker}</p>
+        <h2 class="font-headline text-4xl md:text-5xl font-bold text-on-primary mb-6">{i.matches.title}</h2>
+        <p class="text-on-primary/70 text-lg leading-relaxed mb-8">{i.matches.body}</p>
+        <a href="#calendar" class="inline-flex items-center gap-2 bg-secondary text-on-secondary px-6 py-3 rounded-md font-bold hover:scale-105 transition-transform">
+          <span class="material-symbols-outlined">calendar_month</span>
+          {i.matches.cta}
+        </a>
+      </div>
+
+      <div class="lg:w-2/3 w-full">
+        <div class="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10">
+          <div class="flex items-center justify-between mb-6">
+            <span class="text-on-primary/60 text-sm uppercase tracking-wider font-bold">{i.matches.soon}</span>
+            <span class="material-symbols-outlined text-secondary">update</span>
+          </div>
+          <div class="space-y-4">
+            {placeholderMatches.map((m) => (
+              <div class="flex items-center gap-6 py-4 border-t border-white/10 first:border-t-0">
+                <div class="text-center w-16 flex-none">
+                  <div class="font-headline text-3xl font-bold text-secondary">{m.date}</div>
+                </div>
+                <div class="flex-1 min-w-0">
+                  <div class="flex items-center gap-3 mb-1">
+                    <span class={`text-xs font-bold uppercase tracking-wider px-2 py-0.5 rounded ${m.isHome ? 'bg-secondary text-on-secondary' : 'bg-white/10 text-on-primary/80'}`}>
+                      {m.isHome ? (locale === 'fr' ? 'Domicile' : 'Home') : (locale === 'fr' ? 'Extérieur' : 'Away')}
+                    </span>
+                    <span class="text-on-primary/50 text-xs">{m.venue}</span>
+                  </div>
+                  <div class="font-headline font-bold text-lg text-on-primary truncate">
+                    {m.home} <span class="text-on-primary/40 mx-2">vs</span> {m.away}
+                  </div>
+                </div>
+                <span class="material-symbols-outlined text-on-primary/30 hidden sm:inline">chevron_right</span>
+              </div>
+            ))}
+          </div>
+          <p class="text-on-primary/50 text-sm mt-6 italic">{i.matches.placeholder}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
